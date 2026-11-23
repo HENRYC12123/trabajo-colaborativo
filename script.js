@@ -18,6 +18,7 @@ const contProductos  = document.getElementById("productos");
 const listaCarrito   = document.getElementById("carritoLista");
 const totalCarrito   = document.getElementById("carritoTotal");
 const seccionCafe    = document.getElementById("cafeteria");
+const seccionStreaming = document.getElementById("streaming");
 const modal          = document.getElementById("modal");
 const modalIcono     = document.getElementById("modalIcono");
 const modalTitulo    = document.getElementById("modalTitulo");
@@ -39,8 +40,7 @@ document.querySelectorAll("[data-servicio]").forEach(boton => {
     if (servicio === "cafeteria") {
       mostrarCafeteria();
     } else if (servicio === "streaming") {
-      abrirModal("🛠️", "En mantenimiento",
-        "Los servicios de streaming se encuentran en mantenimiento. ¡Vuelve pronto!");
+      mostrarStreaming();
     } else if (servicio === "panaderia") {
       abrirModal("🛠️", "En mantenimiento",
         "La panadería se encuentra en mantenimiento. ¡Vuelve pronto!");
@@ -51,6 +51,11 @@ document.querySelectorAll("[data-servicio]").forEach(boton => {
 function mostrarCafeteria() {
   seccionCafe.classList.remove("oculto");
   seccionCafe.scrollIntoView({ behavior: "smooth" });
+}
+
+function mostrarStreaming() {
+  seccionStreaming.classList.remove("oculto");
+  seccionStreaming.scrollIntoView({ behavior: "smooth" });
 }
 
 // ===== MODAL =====
@@ -148,3 +153,81 @@ document.getElementById("btnConfirmar").addEventListener("click", () => {
 
 // ===== INICIO =====
 mostrarProductos();
+
+// ===== STREAMING (CRUNCHYROLL) =====
+(function () {
+    const menuToggle = document.getElementById("crMenuToggle");
+    const mainNav = document.getElementById("crMainNav");
+    const planModal = document.getElementById("planModal");
+    const closeModalButton = document.getElementById("closeModal");
+    const confirmButton = document.getElementById("confirmSimulation");
+    const selectedPlanName = document.getElementById("selectedPlanName");
+    const selectedPlanPrice = document.getElementById("selectedPlanPrice");
+    const selectionStatus = document.getElementById("selectionStatus");
+
+    let currentPlan = "";
+
+    // Abre y cierra el menú de navegación en pantallas pequeñas.
+    menuToggle.addEventListener("click", () => {
+        const menuIsOpen = mainNav.classList.toggle("is-open");
+        menuToggle.setAttribute("aria-expanded", String(menuIsOpen));
+        menuToggle.setAttribute("aria-label", menuIsOpen ? "Cerrar menú" : "Abrir menú");
+    });
+
+    // Cierra el menú móvil después de elegir una sección.
+    mainNav.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+            mainNav.classList.remove("is-open");
+            menuToggle.setAttribute("aria-expanded", "false");
+            menuToggle.setAttribute("aria-label", "Abrir menú");
+        });
+    });
+
+    // Muestra la ventana de simulación con los datos del plan elegido.
+    document.querySelectorAll(".choose-plan").forEach((button) => {
+        button.addEventListener("click", () => {
+            currentPlan = button.dataset.plan;
+            const currentPrice = button.dataset.price;
+
+            selectedPlanName.textContent = currentPlan;
+            selectedPlanPrice.textContent = currentPrice;
+            selectionStatus.textContent = "Has seleccionado " + currentPlan + ". Confirma la simulación en la ventana emergente.";
+            planModal.hidden = false;
+            closeModalButton.focus();
+        });
+    });
+
+    // Cierra la ventana emergente y devuelve el foco al contenido.
+    function closePlanModal() {
+        planModal.hidden = true;
+    }
+
+    closeModalButton.addEventListener("click", closePlanModal);
+
+    // Permite cerrar el modal haciendo clic en el fondo oscuro.
+    planModal.addEventListener("click", (event) => {
+        if (event.target === planModal) {
+            closePlanModal();
+        }
+    });
+
+    // También permite cerrar el modal con la tecla Escape.
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && !planModal.hidden) {
+            closePlanModal();
+        }
+    });
+
+    // Confirma únicamente la selección de prueba: no hay pago ni registro real.
+    confirmButton.addEventListener("click", () => {
+        selectionStatus.textContent = "¡Listo! La selección de " + currentPlan + " se completó como simulación académica. No se realizó ningún pago.";
+        closePlanModal();
+        selectionStatus.scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+
+    // Botón para volver a la página principal.
+    document.getElementById("crVolver").addEventListener("click", () => {
+        document.getElementById("streaming").classList.add("oculto");
+        document.getElementById("servicios").scrollIntoView({ behavior: "smooth" });
+    });
+})();
