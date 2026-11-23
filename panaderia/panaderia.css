@@ -1,0 +1,390 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+:root {
+    --crema: #f8f4ec;
+    --beige: #e8dcc9;
+    --marron: #4a3024;
+    --dorado: #a77d59;
+    --blanco: #fffdf8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--blanco);
+    color: var(--marron);
+    font-family: 'DM Sans', sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background: var(--blanco);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 1px solid var(--beige);
+}
+
+.logo h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 25px;
+}
+
+.logo span {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--dorado);
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--marron);
+    font-size: 13px;
+}
+
+nav a:hover {
+    color: var(--dorado);
+}
+
+.hero {
+    padding: 75px 9%;
+    background: var(--crema);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 45px;
+}
+
+.hero img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+}
+
+.subtitle {
+    color: var(--dorado);
+    letter-spacing: 2px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+h1, h2 {
+    font-family: 'Playfair Display', serif;
+}
+
+.hero h1 {
+    font-size: 55px;
+    margin: 20px 0;
+}
+
+em {
+    color: var(--dorado);
+}
+
+.hero-text p {
+    line-height: 1.8;
+    color: #827164;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--marron);
+    color: white;
+    padding: 14px 22px;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn:hover {
+    background: var(--dorado);
+}
+
+.about {
+    padding: 90px 15%;
+    text-align: center;
+}
+
+.about h2 {
+    font-size: 40px;
+    margin: 20px 0;
+}
+
+.about p {
+    color: #827164;
+    line-height: 1.9;
+    max-width: 650px;
+    margin: auto;
+}
+
+.catalog {
+    padding: 80px 9%;
+    background: var(--crema);
+}
+
+.section-title {
+    text-align: center;
+}
+
+.section-title h2 {
+    font-size: 40px;
+    margin-top: 15px;
+}
+
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 35px 0;
+    flex-wrap: wrap;
+}
+
+.filters button {
+    padding: 10px 20px;
+    border: 1px solid var(--dorado);
+    background: transparent;
+    color: var(--marron);
+    cursor: pointer;
+}
+
+.filters button.active,
+.filters button:hover {
+    background: var(--marron);
+    color: white;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.product-card {
+    background: var(--blanco);
+    transition: .3s;
+    border: 1px solid var(--beige);
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.product-info {
+    padding: 20px;
+}
+
+.product-info h3 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 10px;
+}
+
+.product-info p {
+    color: #827164;
+    font-size: 12px;
+    min-height: 38px;
+}
+
+.product-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 18px;
+    padding-top: 15px;
+    border-top: 1px solid var(--beige);
+}
+
+.price {
+    font-weight: bold;
+}
+
+.add-btn {
+    padding: 9px 12px;
+    background: transparent;
+    border: 1px solid var(--dorado);
+    color: var(--marron);
+    cursor: pointer;
+}
+
+.add-btn:hover {
+    background: var(--marron);
+    color: white;
+}
+
+.orders {
+    padding: 90px 10%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: start;
+}
+
+.orders h2 {
+    font-size: 42px;
+    margin: 20px 0;
+}
+
+.orders > div:first-child p {
+    color: #827164;
+    line-height: 1.8;
+}
+
+.cart {
+    padding: 28px;
+    background: var(--crema);
+    border: 1px solid var(--beige);
+}
+
+.cart h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.empty {
+    padding: 20px 0;
+    color: #827164;
+}
+
+.cart-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 0;
+    border-bottom: 1px solid var(--beige);
+    font-size: 12px;
+}
+
+.quantity-controls {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.quantity-controls button {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    border: 1px solid var(--beige);
+    background: white;
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+    font-size: 20px;
+    font-family: 'Playfair Display', serif;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+form label {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+form input, form textarea {
+    padding: 13px;
+    border: 1px solid var(--beige);
+    background: var(--blanco);
+    font-family: inherit;
+}
+
+form textarea {
+    resize: vertical;
+}
+
+form button {
+    margin-top: 12px;
+}
+
+#formMessage {
+    color: #54734b;
+    font-size: 12px;
+}
+
+footer {
+    padding: 45px 10%;
+    text-align: center;
+    background: var(--marron);
+    color: white;
+}
+
+footer h2 {
+    margin-bottom: 12px;
+}
+
+footer p {
+    color: var(--beige);
+    margin-bottom: 20px;
+}
+
+footer small {
+    font-size: 10px;
+}
+
+@media(max-width: 750px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero, .orders {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .hero img {
+        height: 300px;
+    }
+
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 480px) {
+    .products {
+        grid-template-columns: 1fr;
+    }
+
+    .about, .catalog, .orders {
+        padding: 60px 6%;
+    }
+}
