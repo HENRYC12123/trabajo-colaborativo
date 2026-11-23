@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dulce Aroma | Panadería</title>
+    <link rel="stylesheet" href="panaderia.css">
+    <script src="panaderia.js" defer></script>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <h2>Dulce Aroma</h2>
+        <span>Panadería & Pastelería</span>
+    </div>
+
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#catalogo">Productos</a>
+        <a href="#pedidos">Pedidos</a>
+    </nav>
+</header>
+
+<section class="hero" id="inicio">
+    <div class="hero-text">
+        <span class="subtitle">EL SABOR DE LO ARTESANAL</span>
+        <h1>Pequeños momentos,<br><em>grandes sabores.</em></h1>
+        <p>Disfruta de panes frescos, tortas y deliciosos postres elaborados con amor.</p>
+        <a href="#catalogo" class="btn">Ver productos →</a>
+    </div>
+
+    <img src="https://images.unsplash.com/photo-1530610476181-d83430b64dcd?auto=format&fit=crop&w=1000&q=85" alt="Panadería artesanal">
+</section>
+
+<section class="about" id="nosotros">
+    <span class="subtitle">SOBRE NOSOTROS</span>
+    <h2>El sabor de lo <em>hecho en casa.</em></h2>
+    <p>En Dulce Aroma elaboramos productos frescos y artesanales utilizando ingredientes seleccionados para ofrecer calidad y sabor en cada preparación.</p>
+</section>
+
+<section class="catalog" id="catalogo">
+    <div class="section-title">
+        <span class="subtitle">NUESTROS PRODUCTOS</span>
+        <h2>Descubre nuestro <em>catálogo</em></h2>
+    </div>
+
+    <div class="filters">
+        <button class="active" data-filter="todos">Todos</button>
+        <button data-filter="panes">Panes</button>
+        <button data-filter="tortas">Tortas</button>
+        <button data-filter="postres">Postres</button>
+    </div>
+
+    <div class="products" id="productGrid"></div>
+</section>
+
+<section class="orders" id="pedidos">
+    <div>
+        <span class="subtitle">HAZ TU PEDIDO</span>
+        <h2>Algo delicioso<br><em>te está esperando.</em></h2>
+        <p>Selecciona tus productos y realiza tu pedido fácilmente.</p>
+    </div>
+
+    <div class="cart">
+        <h3>Mi pedido <span id="cartCount">(0)</span></h3>
+
+        <div id="cartItems">
+            <p class="empty">Tu carrito está vacío.</p>
+        </div>
+
+        <div class="total">
+            <strong>Total:</strong>
+            <strong id="cartTotal">Bs 0</strong>
+        </div>
+
+        <form id="orderForm">
+            <label>Nombre completo</label>
+            <input type="text" id="customerName" required placeholder="Tu nombre">
+
+            <label>Teléfono</label>
+            <input type="tel" id="customerPhone" required placeholder="Tu número">
+
+            <label>Detalles del pedido</label>
+            <textarea id="orderNotes" placeholder="Indicaciones adicionales"></textarea>
+
+            <button class="btn" type="submit">Enviar pedido por WhatsApp</button>
+            <p id="formMessage"></p>
+        </form>
+    </div>
+</section>
+
+<footer>
+    <h2>Dulce Aroma</h2>
+    <p>Elaboramos felicidad en cada producto.</p>
+    <small>© 2026 Dulce Aroma - Todos los derechos reservados.</small>
+</footer>
+
+</body>
+</html>
